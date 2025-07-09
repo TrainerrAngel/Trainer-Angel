@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trainer Angel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Trainer Angel</h1>
+    <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('show')">☰</button>
+    <nav id="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#rutinas">Rutinas</a>
+      <a href="#planes">Planes</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="parallax">
+      <div class="contenido-inicio">
+        <h2>Bienvenido a Trainer Angel</h2>
+        <p>Transforma tu cuerpo con rutinas profesionales y seguimiento personalizado.</p>
+      </div>
+    </section>
+
+    <section id="rutinas" class="rutinas-mejoradas reveal">
+      <h2>Rutinas de Entrenamiento</h2>
+      <div class="cards-rutinas">
+        <div class="card-rutina">
+          <h3>Fuerza Hipertrofia</h3>
+          <p>Enfocada en ganancia muscular y fuerza máxima.</p>
+        </div>
+        <div class="card-rutina">
+          <h3>FullBody Avanzada</h3>
+          <p>Ideal para intermedios con progresiones reales.</p>
+        </div>
+        <div class="card-rutina">
+          <h3>Push Pull Legs</h3>
+          <p>División clásica y efectiva para progresar sin fatiga excesiva.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="planes" class="parallax reveal">
+      <div class="contenido-planes">
+        <h2 class="titulo-planes">Planes de Entrenamiento</h2>
+        <div class="gallery">
+          <div class="gallery-item">
+            <h3>Mensual</h3>
+            <p>Acceso completo por 1 mes.</p>
+            <strong>$80.000</strong><br/>
+            <a href="https://mpago.la/1Ryw9Jp">
+              <button class="boton-azul">Comprar</button>
+            </a>
+          </div>
+          <div class="gallery-item">
+            <h3>Trimestral</h3>
+            <p>Acceso completo por 3 meses.</p>
+            <strong>$180.000</strong><br/>
+            <a href="https://mpago.la/14diS5a">
+              <button class="boton-rojo">Comprar</button>
+            </a>
+          </div>
+          <div class="gallery-item">
+            <h3>Anual</h3>
+            <p>Acceso completo por 12 meses.</p>
+            <strong>$600.000</strong><br/>
+            <a href="https://mpago.la/1PTmHY9">
+              <button class="boton-negro">Comprar</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonios" class="parallax reveal">
+      <div class="contenido-testimonios">
+        <h2>Testimonios Reales</h2>
+        <div class="testimonios-carousel">
+          <div class="testimonio active">
+            <blockquote>“Gracias a Trainer Angel bajé 8kg y gané músculo sin perder tiempo en el gym.”</blockquote>
+            <cite>– Juan P.</cite>
+          </div>
+          <div class="testimonio">
+            <blockquote>“Las rutinas son claras, progresivas y efectivas. ¡Recomendado al 100%!”</blockquote>
+            <cite>– Martina S.</cite>
+          </div>
+          <div class="testimonio">
+            <blockquote>“Es como tener un entrenador real, pero con total libertad.”</blockquote>
+            <cite>– Diego R.</cite>
+          </div>
+          <div class="testimonio">
+            <blockquote>“Pasé de no saber entrenar a lograr mis marcas más altas. Excelente sistema.”</blockquote>
+            <cite>– Lucas V.</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="reveal">
+      <h2>Contacto</h2>
+      <form action="https://formspree.io/f/tu-formulario" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Trainer Angel. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    let indiceTestimonio = 0;
+    const testimonios = document.querySelectorAll('.testimonios-carousel .testimonio');
+    function rotarTestimonios() {
+      testimonios.forEach((t) => t.classList.remove('active'));
+      indiceTestimonio = (indiceTestimonio + 1) % testimonios.length;
+      testimonios[indiceTestimonio].classList.add('active');
+    }
+    setInterval(rotarTestimonios, 5000);
+  </script>
+</body>
+</html>

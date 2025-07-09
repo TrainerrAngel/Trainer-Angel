@@ -1,0 +1,157 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+header {
+  background-color: #000;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav {
+  display: flex;
+  gap: 1rem;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
+.menu-toggle {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+  }
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background-color: #111;
+  }
+  nav.show {
+    display: flex;
+  }
+  nav a {
+    padding: 1rem;
+    border-top: 1px solid #222;
+  }
+}
+.parallax {
+  background: #e0e0e0;
+  padding: 4rem 2rem;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: none;
+}
+.cards-rutinas, .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.card-rutina, .gallery-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.boton-azul {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+}
+.boton-rojo {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+}
+.boton-negro {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: auto;
+}
+form input, form textarea {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+form button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+}
+.testimonios-carousel {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  min-height: 140px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.testimonios-carousel .testimonio {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-style: italic;
+  color: #333;
+  background-color: #ffffff;
+  border-left: 5px solid #ff0000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.testimonios-carousel .testimonio.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+}
+.testimonios-carousel .testimonio cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+  color: #555;
+  margin-top: 0.5rem;
+}
+footer {
+  background-color: #000;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
